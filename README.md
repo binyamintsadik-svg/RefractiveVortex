@@ -9,19 +9,32 @@ We demonstrate that the Hubble Tension can be resolved by modeling the local Lar
 
 ```text
 /
-├── README.md                <-- Update this with the new Abstract & Headline Numbers
-├── paper/
-│   └── cosmological_lensing.pdf  <-- The final compiled PDF
-├── code/
-│   ├── plotting/
-│   │   ├── plot_hybrid_decomposition.py  <-- NEW (Fig 1)
-│   │   └── plot_teardrop_geometry.py     <-- NEW (Appendix A)
-│   ├── analysis/
-│   │   └── mcmc_production_run.py        <-- The 12k Step Runner
-│   └── utils/
-│       └── physics_model.py              <-- The core integral logic
-├── data/
-│   ├── figure1_inputs.npz                <-- The Pantheon+ data subset
-│   └── production_run_summary.txt        <-- NEW (The stats)
-└── notebooks/
-    └── jwst_age_paradox.ipynb            <-- Optional: The z=14 vs z=10 math
+├── physics_model.py        # Core refractive engine (NFW potential, integration)
+├── main_analysis.py        # Grid scans, likelihood minimization, and Monte Carlo
+├── figure1_plot.py         # Generates the "Holy Trinity" Hubble Diagram
+└── requirements.txt        # Python dependencies
+
+
+## Reproducing paper figures
+
+### Figure 1 (hybrid decomposition)
+
+This repository includes `figure1_inputs.npz` which contains the precomputed arrays needed to reproduce Figure 1 exactly.
+
+Run:
+
+python plot_hybrid_decomposition.py --inputs figure1_inputs.npz
+
+Outputs are written to `figures/`.
+
+### Appendix Figure A1 (teardrop geometry)
+
+Run:
+
+python plot_teardrop_geometry.py --rs1 830 --rs2 2000
+
+Outputs are written to `figures/`.
+
+### Production MCMC statistics
+
+See `production_run_stats.md` for the posterior summaries from the 12k production run.
