@@ -9,7 +9,19 @@ We demonstrate that the Hubble Tension can be resolved by modeling the local Lar
 
 ```text
 /
-├── physics_model.py        # Core refractive engine (NFW potential, integration)
-├── main_analysis.py        # Grid scans, likelihood minimization, and Monte Carlo
-├── figure1_plot.py         # Generates the "Holy Trinity" Hubble Diagram
-└── requirements.txt        # Python dependencies
+├── README.md                <-- Update this with the new Abstract & Headline Numbers
+├── paper/
+│   └── cosmological_lensing.pdf  <-- The final compiled PDF
+├── code/
+│   ├── plotting/
+│   │   ├── plot_hybrid_decomposition.py  <-- NEW (Fig 1)
+│   │   └── plot_teardrop_geometry.py     <-- NEW (Appendix A)
+│   ├── analysis/
+│   │   └── mcmc_production_run.py        <-- The 12k Step Runner
+│   └── utils/
+│       └── physics_model.py              <-- The core integral logic
+├── data/
+│   ├── figure1_inputs.npz                <-- The Pantheon+ data subset
+│   └── production_run_summary.txt        <-- NEW (The stats)
+└── notebooks/
+    └── jwst_age_paradox.ipynb            <-- Optional: The z=14 vs z=10 math
